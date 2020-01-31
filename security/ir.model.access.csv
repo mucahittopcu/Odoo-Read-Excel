@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_app_user_2,User Access,model_excel_list,read_excel_group_user,1,0,0,0
+access_app_manager_2,Manager Access,model_excel_list,read_excel_group_manager,1,1,1,1

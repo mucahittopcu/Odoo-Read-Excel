@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--form view of the patient model-->
+    <record id="read_form" model="ir.ui.view">
+        <field name="name">excel.read.form</field>
+        <field name="arch" type="xml">
+            <form string="Read">
+                <sheet>
+                    <group>
+                        <header>
+                            <button string="Read and List" type="object" name="read_show"/>
+                        </header>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="eric_product_attribute" model="ir.actions.act_window">
+    <field name="name">Product Attributes</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">excel.list</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_type">form</field>
+    <field name="view_id"/>
+    <field name="help" type="html">
+        <xpath expr="//tree" position="attributes">
+                    <attribute name="editable"></attribute>
+        </xpath>
+    </field>
+    </record>
+
+    <!-- add menu-->
+
+
+    <record id="read_tree" model="ir.ui.view">
+        <field name="name">excel.read.tree</field>
+        <field name="model">excel.list</field>
+        <field name="arch" type="xml">
+            <tree string="Excel List">
+                <button string="Read and List" type="object" name="read_show"/>
+                    <field name="name"/>
+                    <field name="surname"/>
+                    <field name="city"/>
+                    <field name="age"/>
+            </tree>
+        </field>
+     </record>
+
+    <!--action of the patients menu-->
+    <record id="action_read" model="ir.actions.act_window">
+        <field name="name">ExcelReading</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">excel.list</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--creating menus-->
+    <menuitem id="excel_root" name="Excel" sequence="3" />
+    <menuitem id="excel_info" name="List" parent="excel_root" action="action_read" sequence="1"/>
+    <menuitem action="eric_product_attribute" id="menu_product_attribute" name="Product Attributes"
+        parent="excel_root" sequence="3" />
+</odoo>
+
